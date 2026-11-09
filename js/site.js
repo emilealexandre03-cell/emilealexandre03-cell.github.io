@@ -29,7 +29,7 @@
             ? `<p class="stat"><strong>${escapeHtml(project.stat)}</strong><span>${escapeHtml(project.statLabel)}</span></p>`
             : '';
         const chips = project.categories
-            .map((c) => `<span class="chip chip-${escapeHtml(c)}">${escapeHtml(CATEGORIES[c])}</span>`)
+            .map((c) => `<span class="chip">${escapeHtml(CATEGORIES[c])}</span>`)
             .join('');
 
         return `
