@@ -6,6 +6,8 @@
   Category must be "sport", "luxury", "agency" or "service".
   Leave link: "" if there is nothing to link to. The link then disappears.
   Leave fact: "" if you have no figure to show.
+  Logos: list file names from assets/logos/ (see assets/logos/LISEZ-MOI.txt). A logo whose
+  file is missing is simply not shown, so you can add them one at a time.
 */
 
 const PROFILE = {
@@ -17,6 +19,7 @@ const PROFILE = {
 const PROJECTS = [
     {
         title: 'Tour de France',
+        logos: ['assets/logos/tour-de-france.png', 'assets/logos/continental.png'],
         category: 'sport',
         role: 'Event Operations Manager, Continental',
         context: 'Barcelona, Lille, Rouen, Paris · July 2025 and July 2026',
@@ -29,6 +32,7 @@ const PROJECTS = [
     },
     {
         title: 'Roland-Garros, Moët Hennessy',
+        logos: ['assets/logos/roland-garros.png', 'assets/logos/moet-hennessy.png'],
         category: 'sport',
         role: 'VIP Reception Host',
         context: 'Paris · June to July 2026',
@@ -41,6 +45,7 @@ const PROJECTS = [
     },
     {
         title: 'Paris 2024 Olympic Games',
+        logos: ['assets/logos/paris-2024.png'],
         category: 'sport',
         role: 'Production Manager, Petit Palais',
         context: 'Paris · July to August 2024',
@@ -53,6 +58,7 @@ const PROJECTS = [
     },
     {
         title: 'Paris Fashion Week',
+        logos: ['assets/logos/paris-fashion-week.png'],
         category: 'luxury',
         role: 'VIP Reception Host',
         context: 'Paris · 2025 and 2026 editions',
@@ -65,6 +71,7 @@ const PROJECTS = [
     },
     {
         title: 'Mythologies Agency',
+        logos: ['assets/logos/mythologies.png'],
         category: 'agency',
         role: 'Assistant Project Manager Intern',
         context: 'Event agency, Paris · 2023 · 4 months',
@@ -77,6 +84,7 @@ const PROJECTS = [
     },
     {
         title: 'Music festivals',
+        logos: ['assets/logos/we-love-green.png', 'assets/logos/solidays.png', 'assets/logos/lollapalooza.png', 'assets/logos/rock-en-seine.png'],
         category: 'agency',
         role: 'Bar Manager and Bartender',
         context: 'Paris · 2022 and 2023',
@@ -89,6 +97,7 @@ const PROJECTS = [
     },
     {
         title: 'Cornershop',
+        logos: ['assets/logos/cornershop.png'],
         category: 'service',
         role: 'Sales Associate',
         context: 'Surf and kitesurf shop · 2025 · 4 months',
@@ -101,6 +110,7 @@ const PROJECTS = [
     },
     {
         title: 'Hugo’s Manly',
+        logos: ['assets/logos/hugos-manly.png'],
         category: 'service',
         role: 'Bartender and Runner',
         context: 'Sydney, Australia · January to July 2025',
@@ -113,6 +123,7 @@ const PROJECTS = [
     },
     {
         title: 'Roland-Garros 2019',
+        logos: ['assets/logos/roland-garros.png'],
         category: 'sport',
         role: 'Official Ball Boy',
         context: 'Paris · 2019 edition',

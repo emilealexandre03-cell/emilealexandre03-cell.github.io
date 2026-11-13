@@ -1,0 +1,27 @@
+LOGOS DES ÉVÉNEMENTS
+====================
+
+Dépose ici les fichiers de logos, avec EXACTEMENT ces noms (format PNG, fond transparent
+ou blanc, idéalement environ 400 px de large). Un logo dont le fichier est absent
+n'est tout simplement pas affiché : tu peux donc les ajouter un par un.
+
+  tour-de-france.png         Tour de France
+  continental.png            Continental
+  roland-garros.png          Roland-Garros
+  moet-hennessy.png          Moët Hennessy
+  paris-2024.png             Jeux Olympiques de Paris 2024
+  paris-fashion-week.png     Paris Fashion Week
+  mythologies.png            Agence Mythologies
+  we-love-green.png          We Love Green
+  solidays.png               Solidays
+  lollapalooza.png           Lollapalooza
+  rock-en-seine.png          Rock en Seine
+  cornershop.png             Cornershop
+  hugos-manly.png            Hugo's Manly
+
+Pour changer un nom de fichier ou ajouter un logo, ouvre js/projects.js
+et modifie la ligne "logos:" de la mission concernée.
+
+Astuce : télécharge les logos depuis les sites officiels ou les pages « presse » de chaque
+événement. Ce sont des marques déposées : vérifie leurs conditions d'utilisation.
+Les logos s'affichent sur une pastille blanche, donc ils restent lisibles en mode sombre.

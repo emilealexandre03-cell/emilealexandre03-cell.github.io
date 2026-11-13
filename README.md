@@ -7,6 +7,7 @@ Double-clique sur `index.html` pour ouvrir le site. Tu n'as rien à installer.
 - Missions, e-mail et liens : `js/projects.js`
 - Textes de l'accueil, du profil et du contact : `index.html`
 - Couleurs : les deux premiers blocs après les polices dans `css/styles.css`
+- Logos des événements : dépose les fichiers dans `assets/logos/` (les noms attendus sont dans `LISEZ-MOI.txt`)
 - CV : remplace `assets/CV_Emile_Alexandre.pdf` en gardant le même nom de fichier
 
 Attention : le CV publié contient ton numéro de téléphone et ta ville. Tout le monde pourra les voir.

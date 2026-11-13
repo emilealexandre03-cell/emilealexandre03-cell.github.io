@@ -521,18 +521,65 @@ h2 {
 
 .project {
     display: grid;
-    grid-template-columns: 56px minmax(0, 1fr);
+    grid-template-columns: 56px minmax(0, 1fr) auto;
+    grid-template-areas: 'index body logos';
     gap: 4px 20px;
     padding: 34px 0;
     border-bottom: 1px solid var(--rule);
 }
 
 .index {
+    grid-area: index;
     padding-top: 6px;
     color: var(--accent);
     font-family: var(--serif);
     font-size: 1.05rem;
     font-style: italic;
+}
+
+.project-body {
+    grid-area: body;
+}
+
+.logos {
+    display: flex;
+    flex-wrap: wrap;
+    grid-area: logos;
+    align-content: flex-start;
+    gap: 8px;
+    width: 132px;
+}
+
+.logo-tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 62px;
+    height: 46px;
+    padding: 6px;
+    background: #ffffff;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+}
+
+.logo-tile:only-child {
+    width: 132px;
+    height: 104px;
+    padding: 8px;
+}
+
+/* Two logos: stacked, each one wide enough to read */
+.logos:has(.logo-tile:nth-child(2):last-child) .logo-tile {
+    width: 132px;
+    height: 64px;
+    padding: 8px 12px;
+}
+
+.logo-tile img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 
 .project h3 {
@@ -813,13 +860,41 @@ h2 {
     }
 
     .project {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 0;
+        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-areas:
+            'index logos'
+            'body body';
+        gap: 8px 12px;
         padding: 28px 0;
     }
 
     .index {
         padding: 0 0 6px;
+    }
+
+    .logos {
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+        width: auto;
+        max-width: 200px;
+    }
+
+    .logo-tile {
+        width: 64px;
+        height: 48px;
+        padding: 5px;
+    }
+
+    .logos:has(.logo-tile:nth-child(2):last-child) .logo-tile {
+        width: 92px;
+        height: 52px;
+        padding: 6px 8px;
+    }
+
+    .logo-tile:only-child {
+        width: 84px;
+        height: 68px;
+        padding: 6px;
     }
 
     .contact {

@@ -25,9 +25,19 @@
             ? `<a class="project-link" href="${escapeHtml(project.link)}" target="_blank" rel="noopener noreferrer">${escapeHtml(project.linkLabel || 'View project')}</a>`
             : '';
 
+        const logos = (project.logos || []).length
+            ? `<div class="logos">${project.logos
+                  .map(
+                      (file) =>
+                          `<span class="logo-tile"><img src="${escapeHtml(file)}" alt="${escapeHtml(project.title)} logo" /></span>`
+                  )
+                  .join('')}</div>`
+            : '';
+
         return `
             <article class="project" data-category="${escapeHtml(project.category)}">
                 <span class="index" aria-hidden="true">${number}</span>
+                ${logos}
                 <div class="project-body">
                     <h3>${escapeHtml(project.title)}</h3>
                     <p class="role">${escapeHtml(project.role)}</p>
@@ -88,7 +98,22 @@
             searchInput.focus();
         });
 
+        hideMissingLogos();
         applyFilters();
+    }
+
+    function hideMissingLogos() {
+        list.querySelectorAll('.logo-tile img').forEach((image) => {
+            const hide = () => {
+                const tile = image.closest('.logo-tile');
+                if (!tile) return;
+                const group = tile.parentElement;
+                tile.remove();
+                if (!group.children.length) group.remove();
+            };
+            image.addEventListener('error', hide);
+            if (image.complete && image.naturalWidth === 0) hide();
+        });
     }
 
     function setUpContactLinks() {
