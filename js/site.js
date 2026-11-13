@@ -1,4 +1,4 @@
-/* Project search and filters adapted from Portfolio-Demo by Cao Tri DO (ISC license). */
+/* Search and filters adapted from Portfolio-Demo by Cao Tri DO (ISC license). */
 
 (function () {
     const list = document.getElementById('projectList');
@@ -12,73 +12,50 @@
 
     function escapeHtml(text) {
         const element = document.createElement('span');
-        element.textContent = text == null ? '' : text;
+        element.textContent = text;
         return element.innerHTML;
     }
 
-    function pad(number) {
-        return String(number).padStart(2, '0');
-    }
-
-    function row(project, index) {
-        const meta = [project.place, project.period].filter(Boolean).map(escapeHtml).join(' · ');
-        const bullets = project.bullets.length
-            ? `<ul>${project.bullets.map((b) => `<li>${escapeHtml(b)}</li>`).join('')}</ul>`
-            : '';
-        const stat = project.stat
-            ? `<p class="stat"><strong>${escapeHtml(project.stat)}</strong><span>${escapeHtml(project.statLabel)}</span></p>`
-            : '';
-        const chips = project.categories
-            .map((c) => `<span class="chip">${escapeHtml(CATEGORIES[c])}</span>`)
+    function card(item) {
+        const tags = item.tools
+            .split(',')
+            .map((tag) => tag.trim())
+            .filter(Boolean)
+            .map((tag) => `<li>${escapeHtml(tag)}</li>`)
             .join('');
+        const result = item.resultValue
+            ? `<p class="result"><strong>${escapeHtml(item.resultValue)}</strong><span>${escapeHtml(item.resultLabel)}</span></p>`
+            : '';
+        const link = item.link
+            ? `<a class="project-link" href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.linkLabel || 'Learn more')}</a>`
+            : '';
 
         return `
-            <details class="row">
-                <summary>
-                    <span class="num">${pad(index + 1)}</span>
-                    <span class="main">
-                        <span class="title">${escapeHtml(project.title)}</span>
-                        <span class="org">${escapeHtml(project.role)} · ${escapeHtml(project.org)}</span>
-                    </span>
-                    <span class="meta">${meta}</span>
-                    <span class="toggle" aria-hidden="true"></span>
-                </summary>
-                <div class="detail">
-                    <div class="detail-text">
-                        <p>${escapeHtml(project.summary)}</p>
-                        ${bullets}
-                        <p class="tags">${escapeHtml(project.tags)}</p>
-                        <p class="chips">${chips}</p>
-                    </div>
-                    ${stat}
-                </div>
-            </details>`;
+            <article class="card" data-category="${escapeHtml(item.category)}">
+                <p class="context">${escapeHtml(item.context)}</p>
+                <h3>${escapeHtml(item.title)}</h3>
+                <p class="organisation">${escapeHtml(item.organisation)}</p>
+                <p class="description">${escapeHtml(item.description)}</p>
+                ${link}
+                <ul class="tags">${tags}</ul>
+                ${result}
+            </article>`;
     }
 
     function applyFilters() {
         const term = searchInput.value.toLowerCase().trim();
         let visible = 0;
 
-        list.querySelectorAll('.row').forEach((element, index) => {
-            const project = PROJECTS[index];
-            const text = [
-                project.title,
-                project.role,
-                project.org,
-                project.place,
-                project.period,
-                project.summary,
-                project.bullets.join(' '),
-                project.tags,
-                project.categories.map((c) => CATEGORIES[c]).join(' '),
-            ]
+        list.querySelectorAll('.card').forEach((row, index) => {
+            const item = EXPERIENCES[index];
+            const text = [item.title, item.organisation, item.context, item.description, item.tools]
                 .join(' ')
                 .toLowerCase();
-            const matchesFilter = activeFilter === 'all' || project.categories.includes(activeFilter);
+            const matchesFilter = activeFilter === 'all' || item.category === activeFilter;
             const matchesSearch = term === '' || text.includes(term);
             const show = matchesFilter && matchesSearch;
 
-            element.hidden = !show;
+            row.hidden = !show;
             if (show) visible += 1;
         });
 
@@ -86,8 +63,8 @@
         emptyMessage.hidden = visible !== 0;
     }
 
-    function setUpProjects() {
-        list.innerHTML = PROJECTS.map(row).join('');
+    function setUpExperience() {
+        list.innerHTML = EXPERIENCES.map(card).join('');
         searchInput.addEventListener('input', applyFilters);
 
         filterButtons.forEach((button) => {
@@ -135,11 +112,7 @@
 
     function setTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
-        themeButton.textContent = theme === 'dark' ? 'Light' : 'Dark';
-        themeButton.setAttribute(
-            'aria-label',
-            theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
-        );
+        themeButton.textContent = theme === 'dark' ? 'Day mode' : 'Night mode';
         try {
             localStorage.setItem('theme', theme);
         } catch {
@@ -157,7 +130,8 @@
         });
     }
 
-    setUpProjects();
-    setUpContactLinks();
+    document.getElementById('year').textContent = new Date().getFullYear();
     setUpTheme();
+    setUpContactLinks();
+    setUpExperience();
 })();
