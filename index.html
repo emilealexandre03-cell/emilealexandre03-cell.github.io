@@ -3,259 +3,203 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Émile Alexandre | Event Operations and Sport Production Portfolio</title>
+        <title>Emile Alexandre | Event Operations, V.I.E Candidate</title>
         <meta
             name="description"
-            content="Portfolio of Émile Alexandre: event operations at the Paris 2024 Olympics, Tour de France and Roland-Garros. Looking for a V.I.E in the United States."
+            content="Portfolio of Emile Alexandre, event operations and coordination for sport and luxury, looking for a V.I.E in the United States."
         />
+        <meta name="theme-color" content="#f5f1e8" />
         <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
         <link rel="stylesheet" href="css/styles.css" />
-        <script>
-            /* Apply the saved theme before first paint to avoid a flash. */
-            try {
-                var t = localStorage.getItem('theme');
-                if (!t && window.matchMedia('(prefers-color-scheme: dark)').matches) t = 'dark';
-                if (t) document.documentElement.setAttribute('data-theme', t);
-            } catch (e) {}
-        </script>
     </head>
 
     <body>
-        <a class="skip-link" href="#experience">Skip to experience</a>
+        <a class="skip-link" href="#missions">Skip to missions</a>
+
+        <!-- A thin line that draws itself down the left edge as the page scrolls -->
+        <div class="page-line" aria-hidden="true"><span></span></div>
 
         <header class="site-header">
-            <a class="wordmark" href="#top">
-                <svg class="wordmark-kite" viewBox="0 0 32 20" aria-hidden="true">
-                    <path d="M1 17C5 2 27 2 31 17C26 11 6 11 1 17Z" />
-                </svg>
-                Émile Alexandre
-            </a>
+            <a class="wordmark" href="#top">Emile Alexandre</a>
             <nav aria-label="Main">
-                <a class="nav-link" href="#experience">Experience</a>
-                <a class="nav-link" href="#about">About</a>
-                <a class="nav-link nav-keep" href="#contact">Contact</a>
-                <button id="themeButton" class="theme-button" type="button">Night mode</button>
+                <a href="#missions">Missions</a>
+                <a href="#profile">Profile</a>
+                <a href="#contact">Contact</a>
+                <button id="themeButton" class="theme-button" type="button">Dark mode</button>
             </nav>
         </header>
 
         <main id="top">
             <section class="hero">
-                <div class="hero-sky" aria-hidden="true"></div>
+                <svg class="kite-scene" aria-hidden="true" focusable="false">
+                    <path class="kite-line" pathLength="1" id="lineLeft" />
+                    <path class="kite-line" pathLength="1" id="lineCenter" />
+                    <path class="kite-line" pathLength="1" id="lineRight" />
+                    <g id="bar">
+                        <line x1="-16" y1="0" x2="16" y2="0" />
+                        <circle cx="-16" cy="0" r="2.5" />
+                        <circle cx="16" cy="0" r="2.5" />
+                    </g>
+                    <g id="kite">
+                        <path class="kite-sail" d="M-76 10 Q 0 -56 76 10 Q 0 -12 -76 10 Z" />
+                        <path class="kite-strut" d="M0 -22 L0 -4" />
+                    </g>
+                </svg>
 
                 <div class="hero-content">
-                    <p class="eyebrow">V.I.E candidate · United States</p>
-                    <h1>
-                        <span>Émile</span>
-                        <span>Alexandre</span>
-                    </h1>
-                    <p class="hero-role">Event operations for sport and brand experiences</p>
+                    <p class="eyebrow">V.I.E candidate · Event coordination, marketing and international project management</p>
+                    <h1>Emile <span>Alexandre</span></h1>
+                    <p class="hero-lead">
+                        I run the ground side of big events, from the Olympics to the Tour de France
+                        and Roland-Garros.
+                    </p>
                     <p class="hero-intro">
-                        From the Paris 2024 Olympics to the Tour de France and Roland-Garros, I run the
-                        logistics and the guest experience behind major events. Graduate of iSC Paris,
-                        kitesurfer for ten years, and ready to take it abroad.
+                        Bachelor's graduate of iSC Paris Business School, now looking for a 6 to 12
+                        month V.I.E in the United States, in event operations or sport production.
                     </p>
                     <div class="hero-actions">
-                        <a class="button button-primary" href="#experience">See my experience</a>
+                        <a class="button button-primary" href="#missions">See my missions</a>
                         <a class="button button-secondary" href="#" data-profile="cv" target="_blank" rel="noopener noreferrer">View my CV</a>
                     </div>
                 </div>
-
-                <div class="hero-scene" aria-hidden="true">
-                    <svg viewBox="-30 0 700 760" preserveAspectRatio="xMidYMax meet">
-                        <defs>
-                            <clipPath id="canopy">
-                                <path d="M70 235C150 55 490 55 570 235C480 150 160 150 70 235Z" />
-                            </clipPath>
-                        </defs>
-
-                        <g class="wind">
-                            <path d="M-30 170C60 140 150 200 250 165" />
-                            <path d="M-30 300C90 270 190 330 300 295" />
-                            <path d="M360 40C450 15 540 70 650 40" />
-                            <path d="M-30 430C70 405 150 450 230 425" />
-                        </g>
-
-                        <g class="rig">
-                            <g class="kite-lines">
-                                <path d="M70 235L308 580" />
-                                <path d="M570 235L332 580" />
-                                <path d="M215 115L314 580" />
-                                <path d="M425 115L326 580" />
-                            </g>
-                            <g clip-path="url(#canopy)">
-                                <rect x="70" y="40" width="100" height="220" class="panel-a" />
-                                <rect x="170" y="40" width="100" height="220" class="panel-b" />
-                                <rect x="270" y="40" width="100" height="220" class="panel-c" />
-                                <rect x="370" y="40" width="100" height="220" class="panel-b" />
-                                <rect x="470" y="40" width="100" height="220" class="panel-a" />
-                                <path class="struts" d="M170 40V260M270 40V260M370 40V260M470 40V260" />
-                            </g>
-                            <path class="canopy-edge" d="M70 235C150 55 490 55 570 235C480 150 160 150 70 235Z" />
-                        </g>
-
-                        <g class="rider">
-                            <path class="bar" d="M296 580H344" />
-                            <path class="limb" d="M313 632L300 584M327 632L340 584" />
-                            <circle cx="320" cy="607" r="10" />
-                            <path class="torso" d="M320 624V686" />
-                            <path class="legs" d="M320 686L303 742M320 686L339 742" />
-                            <rect class="board" x="278" y="742" width="84" height="9" rx="4.5" transform="rotate(-7 320 746)" />
-                        </g>
-                    </svg>
-                </div>
-
-                <div class="waves" aria-hidden="true">
-                    <svg class="wave wave-back" viewBox="0 0 2880 120" preserveAspectRatio="none">
-                        <path d="M0 60Q180 20 360 60T720 60T1080 60T1440 60T1800 60T2160 60T2520 60T2880 60V120H0Z" />
-                    </svg>
-                    <svg class="wave wave-mid" viewBox="0 0 2880 120" preserveAspectRatio="none">
-                        <path d="M0 60Q180 20 360 60T720 60T1080 60T1440 60T1800 60T2160 60T2520 60T2880 60V120H0Z" />
-                    </svg>
-                    <svg class="wave wave-front" viewBox="0 0 2880 120" preserveAspectRatio="none">
-                        <path d="M0 60Q180 20 360 60T720 60T1080 60T1440 60T1800 60T2160 60T2520 60T2880 60V120H0Z" />
-                    </svg>
-                </div>
             </section>
 
-            <section class="conditions" aria-labelledby="conditionsTitle">
-                <div class="section-inner">
-                    <h2 id="conditionsTitle" class="kicker">Conditions report</h2>
-                    <dl class="conditions-grid">
-                        <div>
-                            <dt>300+</dt>
-                            <dd>guests a day at the Petit Palais, Paris 2024 Olympic Games</dd>
-                        </div>
-                        <div>
-                            <dt>120</dt>
-                            <dd>Continental clients hosted at each Tour de France</dd>
-                        </div>
-                        <div>
-                            <dt>50+</dt>
-                            <dd>VIP guests a day at Roland-Garros</dd>
-                        </div>
-                        <div>
-                            <dt>10 yrs</dt>
-                            <dd>on the water, kitesurfing</dd>
-                        </div>
-                    </dl>
-                </div>
-            </section>
-
-            <section id="experience" class="experience">
-                <div class="section-inner">
-                    <div class="section-heading">
-                        <h2>Experience</h2>
-                        <p>Behind the scenes of major sport and brand events.</p>
+            <section class="glance" aria-label="At a glance">
+                <div class="section-inner glance-grid">
+                    <div>
+                        <h2>Looking for</h2>
+                        <p>A V.I.E of 6 to 12 months in the United States</p>
                     </div>
+                    <div>
+                        <h2>Field</h2>
+                        <p>Event operations, sport production, brand activation, international projects</p>
+                    </div>
+                    <div>
+                        <h2>Languages</h2>
+                        <p>French (native), English (fluent, C1), Spanish (B1)</p>
+                    </div>
+                </div>
+            </section>
 
-                    <div class="controls">
+            <section id="missions" class="missions">
+                <div class="section-inner missions-layout">
+                    <aside class="missions-aside">
+                        <div class="rule" aria-hidden="true"></div>
+                        <h2>Missions</h2>
+                        <p class="aside-note">
+                            Events, shows and teams I have worked on, with what I was responsible for.
+                        </p>
+
                         <label class="search">
-                            <span>Search experience</span>
+                            <span>Search missions</span>
                             <input
                                 id="projectSearch"
                                 type="search"
-                                placeholder="Try Tour de France, VIP, or logistics"
+                                placeholder="Try Tour de France or VIP"
                             />
                         </label>
-                        <div class="filters" role="group" aria-label="Filter experience by type">
-                            <button class="filter" type="button" data-filter="all" aria-pressed="true">
-                                All
-                            </button>
-                            <button class="filter" type="button" data-filter="sport" aria-pressed="false">
-                                <i class="dot dot-sport"></i>Sport events
-                            </button>
-                            <button class="filter" type="button" data-filter="hospitality" aria-pressed="false">
-                                <i class="dot dot-hospitality"></i>Hospitality
-                            </button>
-                            <button class="filter" type="button" data-filter="agency" aria-pressed="false">
-                                <i class="dot dot-agency"></i>Agency and retail
+
+                        <div class="filters" role="group" aria-label="Filter missions by type">
+                            <button class="filter" type="button" data-filter="all" aria-pressed="true">All</button>
+                            <button class="filter" type="button" data-filter="sport" aria-pressed="false">Sport events</button>
+                            <button class="filter" type="button" data-filter="luxury" aria-pressed="false">Fashion and luxury</button>
+                            <button class="filter" type="button" data-filter="agency" aria-pressed="false">Agency and festivals</button>
+                            <button class="filter" type="button" data-filter="service" aria-pressed="false">Retail and service</button>
+                        </div>
+
+                        <p id="resultCount" class="result-count" aria-live="polite"></p>
+                    </aside>
+
+                    <div class="missions-main">
+                        <div id="projectList" class="project-list"></div>
+                        <noscript>
+                            <p class="noscript">
+                                The mission list needs JavaScript. My CV has the same information:
+                                <a href="assets/CV_Emile_Alexandre.pdf">open the CV</a>.
+                            </p>
+                        </noscript>
+                        <div id="emptyMessage" class="empty-message" hidden>
+                            <p>No missions match your search.</p>
+                            <button id="clearFilters" class="text-button" type="button">
+                                Clear search and filters
                             </button>
                         </div>
-                    </div>
-
-                    <p id="resultCount" class="result-count" aria-live="polite"></p>
-                    <div id="projectList" class="card-grid"></div>
-                    <div id="emptyMessage" class="empty-message" hidden>
-                        <p>No experience matches your search.</p>
-                        <button id="clearFilters" class="text-button" type="button">
-                            Clear search and filters
-                        </button>
                     </div>
                 </div>
             </section>
 
-            <section id="about" class="about">
+            <section id="profile" class="profile">
                 <div class="section-inner">
-                    <div class="section-heading">
-                        <h2>About</h2>
-                        <p>Business training, a lot of live events, and a lifelong habit of reading the conditions.</p>
-                    </div>
-
-                    <div class="about-grid">
-                        <div>
-                            <h3>Education</h3>
-                            <dl class="timeline">
-                                <div>
-                                    <dt>2024 to 2026</dt>
-                                    <dd>
-                                        <strong>iSC Paris Business School</strong>
-                                        Bachelor in Management, Business Development specialization, in the
-                                        international track. State-recognized Bac+3 with Licence grade,
-                                        AACSB and BGA accredited, CGE and UGEI/CDEFM labels.
-                                    </dd>
-                                </div>
-                                <div>
-                                    <dt>2023</dt>
-                                    <dd>
-                                        <strong>French Baccalauréat, General track</strong>
-                                        Lycée Jeanne d'Arc, Colombes. Economics and Social Sciences, Contemporary
-                                        World English, Geopolitics and Political Science.
-                                    </dd>
-                                </div>
-                            </dl>
-
-                            <h3 class="spaced">Languages</h3>
-                            <p class="skills">French (native), English (fluent, C1), Spanish (B1)</p>
-                        </div>
-
-                        <div>
-                            <h3>Skills</h3>
-                            <p class="skills">
-                                <strong>Event operations:</strong> site coordination, logistics, set-up and
-                                dismantling, access and flow management, security protocols
+                    <div class="rule" aria-hidden="true"></div>
+                    <div class="profile-layout">
+                        <div class="profile-intro">
+                            <h2>Profile</h2>
+                            <p class="pull">
+                                Passionate about operations and high-stakes environments.
                             </p>
-                            <p class="skills">
-                                <strong>Client relations:</strong> VIP reception, hospitality, brand
-                                activations at major sporting events
-                            </p>
-                            <p class="skills">
-                                <strong>Project management:</strong> supplier follow-up, team coordination,
-                                handling unforeseen issues under pressure
-                            </p>
-                            <p class="skills">
-                                <strong>International:</strong> multicultural teamwork, international
-                                programme, six months in Australia
-                            </p>
-                            <p class="skills">
-                                <strong>Tools:</strong> Excel, Word, PowerPoint, Google Workspace, HubSpot,
-                                Canva
-                            </p>
-                        </div>
-
-                        <div class="water">
-                            <h3>On the water</h3>
                             <p>
-                                I have been kitesurfing for more than ten years. It taught me to read
-                                changing conditions, stay calm when they shift, and set up carefully
-                                before the session starts. It is the same routine I bring to an event
-                                site.
+                                I have built hands-on experience from behind the scenes of
+                                international sport (Paris 2024 Olympics, Tour de France,
+                                Roland-Garros) to prestige hospitality (Paris Fashion Week).
+                                I am responsive, well organised, and comfortable working in
+                                English after six months in Australia.
                             </p>
-                            <h3 class="spaced">Outside work</h3>
-                            <p class="skills">
-                                Tennis since childhood, rugby for eight years at Racing Métro 92 (French
-                                champion in 2014), climbing, and travel from New York to Dakhla and
-                                Sydney.
-                            </p>
+                        </div>
+
+                        <div class="profile-details">
+                            <div>
+                                <h3>Education</h3>
+                                <dl class="timeline">
+                                    <div>
+                                        <dt>2024 to 2026</dt>
+                                        <dd>
+                                            <strong>iSC Paris Business School</strong>
+                                            Bachelor in Management, Business Development specialization
+                                            (client relationship management, partnership building,
+                                            commercial strategy), international track. Graduated July 2026.
+                                            State-recognized degree (Bac+3, Licence grade), AACSB and BGA
+                                            accredited, CGE and UGEI/CDEFM labels.
+                                        </dd>
+                                    </div>
+                                    <div>
+                                        <dt>2023</dt>
+                                        <dd>
+                                            <strong>French Baccalauréat, general track</strong>
+                                            Lycée Jeanne d'Arc, Colombes. Economics and Social Sciences,
+                                            Contemporary World English, Geopolitics and Political Science,
+                                            Additional Mathematics option.
+                                        </dd>
+                                    </div>
+                                </dl>
+                            </div>
+
+                            <div>
+                                <h3>Skills</h3>
+                                <p class="skills">
+                                    <strong>Event operations:</strong> site coordination, logistics,
+                                    set-up and dismantling, access and flow management, security protocols
+                                </p>
+                                <p class="skills">
+                                    <strong>Client relations:</strong> VIP clients and partners,
+                                    hospitality, brand activations at major sporting events
+                                </p>
+                                <p class="skills">
+                                    <strong>Project management:</strong> supplier and service-provider
+                                    follow-up, team coordination, handling unforeseen issues under pressure
+                                </p>
+                                <p class="skills">
+                                    <strong>Tools:</strong> Microsoft Office (Excel, Word, PowerPoint),
+                                    Google Workspace, HubSpot CRM, Canva
+                                </p>
+
+                                <h3>Outside work</h3>
+                                <p class="skills">
+                                    Kitesurfing for over 10 years. Tennis since childhood. Rugby for
+                                    8 years at Racing Métro 92, French champion in 2014. Climbing.
+                                    Travel: New York, London, Dublin, Dakhla, Marrakech, Riga,
+                                    Barcelona, Madrid, Sydney, Berlin.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -263,29 +207,27 @@
         </main>
 
         <footer id="contact" class="contact">
-            <svg class="contact-wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
-                <path d="M0 0H1440V30Q1260 60 1080 30T720 30T360 30T0 30Z" />
-            </svg>
             <div class="section-inner">
-                <h2>Let's talk</h2>
+                <h2>Let's talk.</h2>
                 <p>
-                    Looking for a V.I.E of 6 to 12 months in the United States, in sport production or
-                    events? I'd be glad to hear about it.
+                    Do you have a V.I.E in the United States in events, sport or brand activation?
+                    I'd be glad to hear about it.
                 </p>
                 <div class="contact-links">
-                    <a href="#" data-email>Email</a>
-                    <a href="#" data-profile="linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                    <a href="#" data-profile="cv" target="_blank" rel="noopener noreferrer">View my CV</a>
+                    <a href="#" data-email><span>Email</span><i aria-hidden="true">→</i></a>
+                    <a href="#" data-profile="linkedin" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span><i aria-hidden="true">→</i></a>
+                    <a href="#" data-profile="cv" target="_blank" rel="noopener noreferrer"><span>View my CV</span><i aria-hidden="true">→</i></a>
                 </div>
                 <p class="credit">
-                    © <span id="year"></span> Émile Alexandre. Search and filters adapted from
+                    © <span id="year"></span> Emile Alexandre. Search and filters adapted from
                     <a href="https://github.com/malganis35/Portfolio-Demo" target="_blank" rel="noopener noreferrer">Portfolio-Demo</a>
                     by Cao Tri DO.
                 </p>
             </div>
         </footer>
 
-        <script src="js/content.js"></script>
+        <script src="js/projects.js"></script>
         <script src="js/site.js"></script>
+        <script src="js/kite.js"></script>
     </body>
 </html>

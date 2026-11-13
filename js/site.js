@@ -1,4 +1,4 @@
-/* Search and filters adapted from Portfolio-Demo by Cao Tri DO (ISC license). */
+/* Project search and filters adapted from Portfolio-Demo by Cao Tri DO (ISC license). */
 
 (function () {
     const list = document.getElementById('projectList');
@@ -16,29 +16,27 @@
         return element.innerHTML;
     }
 
-    function card(item) {
-        const tags = item.tools
-            .split(',')
-            .map((tag) => tag.trim())
-            .filter(Boolean)
-            .map((tag) => `<li>${escapeHtml(tag)}</li>`)
-            .join('');
-        const result = item.resultValue
-            ? `<p class="result"><strong>${escapeHtml(item.resultValue)}</strong><span>${escapeHtml(item.resultLabel)}</span></p>`
+    function projectRow(project, position) {
+        const number = String(position + 1).padStart(2, '0');
+        const fact = project.fact
+            ? `<p class="fact">${escapeHtml(project.fact)}</p>`
             : '';
-        const link = item.link
-            ? `<a class="project-link" href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.linkLabel || 'Learn more')}</a>`
+        const link = project.link
+            ? `<a class="project-link" href="${escapeHtml(project.link)}" target="_blank" rel="noopener noreferrer">${escapeHtml(project.linkLabel || 'View project')}</a>`
             : '';
 
         return `
-            <article class="card" data-category="${escapeHtml(item.category)}">
-                <p class="context">${escapeHtml(item.context)}</p>
-                <h3>${escapeHtml(item.title)}</h3>
-                <p class="organisation">${escapeHtml(item.organisation)}</p>
-                <p class="description">${escapeHtml(item.description)}</p>
-                ${link}
-                <ul class="tags">${tags}</ul>
-                ${result}
+            <article class="project" data-category="${escapeHtml(project.category)}">
+                <span class="index" aria-hidden="true">${number}</span>
+                <div class="project-body">
+                    <h3>${escapeHtml(project.title)}</h3>
+                    <p class="role">${escapeHtml(project.role)}</p>
+                    <p class="context">${escapeHtml(project.context)}</p>
+                    <p class="description">${escapeHtml(project.description)}</p>
+                    ${fact}
+                    <p class="tools">${escapeHtml(project.tools)}</p>
+                    ${link}
+                </div>
             </article>`;
     }
 
@@ -46,12 +44,19 @@
         const term = searchInput.value.toLowerCase().trim();
         let visible = 0;
 
-        list.querySelectorAll('.card').forEach((row, index) => {
-            const item = EXPERIENCES[index];
-            const text = [item.title, item.organisation, item.context, item.description, item.tools]
+        list.querySelectorAll('.project').forEach((row, index) => {
+            const project = PROJECTS[index];
+            const text = [
+                project.title,
+                project.role,
+                project.context,
+                project.description,
+                project.fact,
+                project.tools,
+            ]
                 .join(' ')
                 .toLowerCase();
-            const matchesFilter = activeFilter === 'all' || item.category === activeFilter;
+            const matchesFilter = activeFilter === 'all' || project.category === activeFilter;
             const matchesSearch = term === '' || text.includes(term);
             const show = matchesFilter && matchesSearch;
 
@@ -59,12 +64,12 @@
             if (show) visible += 1;
         });
 
-        resultCount.textContent = `${visible} ${visible === 1 ? 'experience' : 'experiences'}`;
+        resultCount.textContent = `${visible} ${visible === 1 ? 'mission' : 'missions'}`;
         emptyMessage.hidden = visible !== 0;
     }
 
-    function setUpExperience() {
-        list.innerHTML = EXPERIENCES.map(card).join('');
+    function setUpProjects() {
+        list.innerHTML = PROJECTS.map(projectRow).join('');
         searchInput.addEventListener('input', applyFilters);
 
         filterButtons.forEach((button) => {
@@ -112,7 +117,7 @@
 
     function setTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
-        themeButton.textContent = theme === 'dark' ? 'Day mode' : 'Night mode';
+        themeButton.textContent = theme === 'dark' ? 'Light mode' : 'Dark mode';
         try {
             localStorage.setItem('theme', theme);
         } catch {
@@ -133,5 +138,5 @@
     document.getElementById('year').textContent = new Date().getFullYear();
     setUpTheme();
     setUpContactLinks();
-    setUpExperience();
+    setUpProjects();
 })();

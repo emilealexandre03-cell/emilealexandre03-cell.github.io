@@ -1,23 +1,28 @@
-# Émile Alexandre portfolio
+# Portfolio d'Emile Alexandre
 
-Double-click `index.html` to open the site. You don't need to install anything.
+Double-clique sur `index.html` pour ouvrir le site. Tu n'as rien à installer.
 
-## Edit your content
+## Modifier ton contenu
 
-- Experience, email, and links: `js/content.js`
-- Hero, About, and Contact text: `index.html`
-- Colors: the first two blocks after the fonts in `css/styles.css`
-- CV: replace `assets/CV_Emile_Alexandre.pdf` and keep the same file name
+- Missions, e-mail et liens : `js/projects.js`
+- Textes de l'accueil, du profil et du contact : `index.html`
+- Couleurs : les deux premiers blocs après les polices dans `css/styles.css`
+- CV : remplace `assets/CV_Emile_Alexandre.pdf` en gardant le même nom de fichier
 
-## Publish it
+Attention : le CV publié contient ton numéro de téléphone et ta ville. Tout le monde pourra les voir.
 
-1. Create an empty GitHub repo.
-2. Upload all these files.
-3. In the repo, go to Settings, then Pages.
-4. Choose Deploy from a branch, then `main`, then `/ (root)`, and save.
+## Publier sur GitHub Pages
 
-## Credit
+1. Crée un dépôt GitHub vide (par exemple `emile-alexandre`), en public.
+2. Envoie-y tous les fichiers de ce dossier (le contenu du dossier, pas le dossier lui-même).
+3. Dans le dépôt, va dans Settings, puis Pages.
+4. Choisis Deploy from a branch, puis `main`, puis `/ (root)`, et enregistre.
+5. Attends une à deux minutes : l'adresse du site s'affiche en haut de la page Pages.
 
-The search and filter code is adapted from
-[Portfolio-Demo](https://github.com/malganis35/Portfolio-Demo) by Cao Tri DO.
-Keep the `LICENSE` file with the project. Fonts: Inter (SIL Open Font License).
+## Crédits
+
+Le code de recherche et de filtres est adapté de
+[Portfolio-Demo](https://github.com/malganis35/Portfolio-Demo) par Cao Tri DO.
+Garde le fichier `LICENSE` avec le projet.
+
+Polices : Lora et Inter, sous licence SIL Open Font License.
