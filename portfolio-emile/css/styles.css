@@ -1,0 +1,1034 @@
+/* To change the site's colors, edit the values in the first two blocks. */
+
+@font-face {
+    font-family: 'Inter Display';
+    src: url('../assets/fonts/inter-display-black-italic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../assets/fonts/inter-400.woff') format('woff');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../assets/fonts/inter-500.woff') format('woff');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../assets/fonts/inter-600.woff') format('woff');
+    font-weight: 600;
+    font-display: swap;
+}
+
+:root {
+    color-scheme: light;
+    --kite: #ff5a36;
+    --sun: #ffc83d;
+    --lagoon: #17b8b0;
+    --sea: #0b6f93;
+    --ink: #06263a;
+    --muted: #45606f;
+    --page: #f7f3ea;
+    --surface: #ffffff;
+    --rule: #ddd5c3;
+    --accent: #c4361a;
+    --strip: #06263a;
+    --sky-top: #7fd0e6;
+    --sky-bottom: #f1efe1;
+    --hero-ink: #06263a;
+    --rider: #06263a;
+    --streak: rgba(255, 255, 255, 0.85);
+    --display: 'Inter Display', 'Inter', 'Arial Black', Impact, sans-serif;
+    --body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+:root[data-theme='dark'] {
+    color-scheme: dark;
+    --ink: #eaf4f6;
+    --muted: #9db4bf;
+    --page: #04141f;
+    --surface: #0a2132;
+    --rule: #1b3a50;
+    --accent: #ff7a59;
+    --strip: #0a2a40;
+    --sky-top: #020b14;
+    --sky-bottom: #0b4a63;
+    --hero-ink: #f2fafb;
+    --rider: #eaf4f6;
+    --streak: rgba(160, 225, 235, 0.55);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    margin: 0;
+    background: var(--page);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p,
+dl,
+dd,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+.card h3,
+.conditions-grid dt,
+.result strong {
+    font-family: var(--display);
+    font-weight: 900;
+    font-style: italic;
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+}
+
+a {
+    color: inherit;
+}
+
+:focus-visible {
+    outline: 3px solid var(--kite);
+    outline-offset: 3px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.skip-link {
+    position: absolute;
+    top: -60px;
+    left: 16px;
+    z-index: 30;
+    padding: 10px 16px;
+    background: var(--sun);
+    color: #06263a;
+    font-weight: 600;
+}
+
+.skip-link:focus {
+    top: 12px;
+}
+
+.section-inner {
+    width: min(1200px, 100%);
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+/* Header */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-height: 68px;
+    padding: 12px 32px;
+    background: color-mix(in srgb, var(--page) 86%, transparent);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+}
+
+.wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--display);
+    font-size: 1.25rem;
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.wordmark-kite {
+    width: 30px;
+    fill: var(--kite);
+}
+
+.site-header nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-weight: 500;
+}
+
+.nav-link {
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--kite);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 6px;
+}
+
+.theme-button {
+    white-space: nowrap;
+    min-height: 40px;
+    padding: 6px 16px;
+    color: var(--ink);
+    background: transparent;
+    border: 1.5px solid var(--ink);
+    border-radius: 999px;
+    font: inherit;
+    font-size: 0.92rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.theme-button:hover {
+    color: var(--page);
+    background: var(--ink);
+}
+
+/* Hero: a kite in the wind, over moving water */
+
+.hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: min(780px, calc(100vh - 68px));
+    min-height: min(780px, calc(100svh - 68px));
+    padding: 64px 32px 150px;
+    overflow: hidden;
+    color: var(--hero-ink);
+}
+
+.hero-sky {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 78% 18%, rgba(255, 233, 160, 0.75), transparent 28%),
+        linear-gradient(180deg, var(--sky-top) 0%, var(--sky-bottom) 100%);
+}
+
+:root[data-theme='dark'] .hero-sky {
+    background:
+        radial-gradient(circle 22px at 92% 6%, #f5f1dc 0 98%, transparent 100%),
+        radial-gradient(circle at 92% 6%, rgba(190, 230, 240, 0.28), transparent 22%),
+        radial-gradient(1.5px 1.5px at 12% 20%, #fff 50%, transparent),
+        radial-gradient(1.5px 1.5px at 30% 12%, #fff 50%, transparent),
+        radial-gradient(1.5px 1.5px at 44% 34%, #fff 50%, transparent),
+        radial-gradient(1.5px 1.5px at 62% 10%, #fff 50%, transparent),
+        radial-gradient(1.5px 1.5px at 70% 40%, #fff 50%, transparent),
+        radial-gradient(1.5px 1.5px at 22% 46%, #fff 50%, transparent),
+        linear-gradient(180deg, var(--sky-top) 0%, var(--sky-bottom) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: min(1136px, 100%);
+    margin: 0 auto;
+}
+
+.hero-content > * {
+    max-width: 560px;
+}
+
+.eyebrow {
+    display: inline-block;
+    padding: 6px 14px;
+    color: #06263a;
+    background: var(--sun);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.hero h1 {
+    margin-top: 22px;
+    font-size: clamp(4rem, 8.6vw, 7.6rem);
+    line-height: 0.86;
+    max-width: none;
+}
+
+.hero h1 span {
+    display: block;
+}
+
+.hero h1 span:last-child {
+    margin-left: 0.5ch;
+}
+
+.hero-role {
+    margin-top: 28px;
+    font-size: clamp(1.2rem, 2.1vw, 1.5rem);
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.hero-intro {
+    margin-top: 12px;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    min-height: 50px;
+    padding: 10px 26px;
+    border: 2px solid transparent;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.button-primary {
+    color: #ffffff;
+    background: #d9411f;
+}
+
+.button-primary:hover {
+    background: #b9340f;
+}
+
+.button-secondary {
+    color: var(--hero-ink);
+    border-color: var(--hero-ink);
+}
+
+.button-secondary:hover {
+    color: var(--sky-bottom);
+    background: var(--hero-ink);
+}
+
+:root[data-theme='dark'] .button-secondary:hover {
+    color: #04141f;
+}
+
+/* The scene is right-aligned and sits just above the water */
+
+.hero-scene {
+    position: absolute;
+    top: 8px;
+    right: max(0px, calc((100vw - 1136px) / 2 - 130px));
+    bottom: 86px;
+    z-index: 1;
+    width: min(52%, 640px);
+}
+
+.hero-scene svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.rig {
+    transform-origin: 320px 580px;
+    animation: sway 7s ease-in-out infinite alternate;
+}
+
+@keyframes sway {
+    from {
+        transform: rotate(-7deg);
+    }
+    to {
+        transform: rotate(6deg);
+    }
+}
+
+.kite-lines {
+    fill: none;
+    stroke: var(--rider);
+    stroke-width: 1.5;
+    opacity: 0.7;
+}
+
+.panel-a {
+    fill: var(--kite);
+}
+
+.panel-b {
+    fill: #ffffff;
+}
+
+.panel-c {
+    fill: var(--sun);
+}
+
+.struts {
+    fill: none;
+    stroke: #06263a;
+    stroke-width: 2;
+    opacity: 0.28;
+}
+
+.canopy-edge {
+    fill: none;
+    stroke: #06263a;
+    stroke-width: 3;
+    stroke-linejoin: round;
+}
+
+.rider {
+    fill: var(--rider);
+    stroke: none;
+}
+
+.rider path {
+    fill: none;
+    stroke: var(--rider);
+    stroke-linecap: round;
+}
+
+.rider .bar {
+    stroke-width: 5;
+}
+
+.rider .limb {
+    stroke-width: 6;
+}
+
+.rider .torso {
+    stroke-width: 15;
+}
+
+.rider .legs {
+    stroke-width: 9;
+}
+
+.rider .board {
+    fill: var(--kite);
+}
+
+.wind path {
+    fill: none;
+    stroke: var(--streak);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-dasharray: 90 520;
+    animation: gust 5.5s linear infinite;
+}
+
+.wind path:nth-child(2) {
+    animation-delay: -1.8s;
+    animation-duration: 6.5s;
+}
+
+.wind path:nth-child(3) {
+    animation-delay: -3.2s;
+}
+
+.wind path:nth-child(4) {
+    animation-delay: -4.4s;
+    animation-duration: 7s;
+}
+
+@keyframes gust {
+    from {
+        stroke-dashoffset: 610;
+    }
+    to {
+        stroke-dashoffset: -610;
+    }
+}
+
+/* Water: three layers, each moving at its own pace */
+
+.waves {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+    height: 130px;
+    pointer-events: none;
+}
+
+.wave {
+    position: absolute;
+    left: 0;
+    width: 200%;
+    height: 120px;
+    animation: drift 22s linear infinite;
+}
+
+.wave-back {
+    bottom: 36px;
+    fill: var(--lagoon);
+    opacity: 0.7;
+}
+
+.wave-mid {
+    bottom: 18px;
+    fill: var(--sea);
+    animation-duration: 15s;
+    animation-direction: reverse;
+}
+
+.wave-front {
+    bottom: -2px;
+    fill: var(--strip);
+    animation-duration: 10s;
+}
+
+@keyframes drift {
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* Conditions report */
+
+.conditions {
+    padding: 8px 0 56px;
+    color: #ffffff;
+    background: var(--strip);
+}
+
+.kicker {
+    margin-bottom: 28px;
+    color: var(--sun);
+    font-family: var(--body);
+    font-size: 0.85rem;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.conditions-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 28px 40px;
+}
+
+.conditions-grid > div {
+    padding-top: 16px;
+    border-top: 2px solid rgba(255, 255, 255, 0.22);
+}
+
+.conditions-grid dt {
+    color: var(--sun);
+    font-size: clamp(3rem, 5vw, 4.4rem);
+}
+
+.conditions-grid dd {
+    margin-top: 10px;
+    color: #d3e4ea;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* Sections */
+
+.experience,
+.about {
+    padding: 96px 0;
+}
+
+.about {
+    background: var(--surface);
+}
+
+.section-heading {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px 28px;
+    margin-bottom: 36px;
+}
+
+.section-heading h2,
+.contact h2 {
+    font-size: clamp(3.4rem, 7vw, 5.6rem);
+}
+
+.section-heading p {
+    max-width: 52ch;
+    color: var(--muted);
+}
+
+/* Search and filters */
+
+.controls {
+    display: grid;
+    grid-template-columns: minmax(240px, 340px) 1fr;
+    align-items: end;
+    gap: 16px 32px;
+}
+
+.search span {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.search input {
+    width: 100%;
+    min-height: 48px;
+    padding: 8px 18px;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1.5px solid var(--muted);
+    border-radius: 999px;
+    font: inherit;
+}
+
+.search input::placeholder {
+    color: var(--muted);
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.filter {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 48px;
+    padding: 8px 18px;
+    color: var(--ink);
+    background: transparent;
+    border: 1.5px solid var(--muted);
+    border-radius: 999px;
+    font: inherit;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.filter:hover {
+    border-color: var(--ink);
+}
+
+.filter[aria-pressed='true'] {
+    color: var(--page);
+    background: var(--ink);
+    border-color: var(--ink);
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.dot-sport {
+    background: var(--kite);
+}
+
+.dot-hospitality {
+    background: var(--lagoon);
+}
+
+.dot-agency {
+    background: var(--sun);
+}
+
+.result-count {
+    margin-top: 24px;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+/* Experience cards */
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 12px;
+}
+
+.card {
+    --cat: var(--kite);
+    display: flex;
+    flex-direction: column;
+    padding: 28px 28px 26px;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-top: 6px solid var(--cat);
+    border-radius: 6px 6px 18px 18px;
+}
+
+.card[data-category='hospitality'] {
+    --cat: var(--lagoon);
+}
+
+.card[data-category='agency'] {
+    --cat: var(--sun);
+}
+
+.card .context {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.card h3 {
+    margin-top: 10px;
+    font-size: clamp(1.9rem, 2.8vw, 2.4rem);
+    line-height: 0.98;
+}
+
+.organisation {
+    margin-top: 8px;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.description {
+    margin-top: 14px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: auto;
+    padding-top: 18px;
+    list-style: none;
+}
+
+.tags li {
+    padding: 3px 12px;
+    color: var(--muted);
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    font-size: 0.85rem;
+}
+
+.result {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--rule);
+}
+
+.result strong {
+    flex: none;
+    color: var(--accent);
+    font-size: 2.8rem;
+}
+
+.result span {
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.35;
+}
+
+.project-link,
+.text-button {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 0;
+    color: var(--accent);
+    background: none;
+    border: 0;
+    font: inherit;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    cursor: pointer;
+}
+
+.empty-message {
+    padding: 40px 0;
+}
+
+/* About */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1.1fr 0.95fr;
+    gap: 40px 56px;
+}
+
+.about h3 {
+    margin-bottom: 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.about h3.spaced {
+    margin-top: 36px;
+}
+
+.skills + .skills {
+    margin-top: 12px;
+}
+
+.skills strong {
+    font-weight: 600;
+}
+
+.timeline > div + div {
+    margin-top: 24px;
+}
+
+.timeline dt {
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.timeline strong {
+    display: block;
+    font-weight: 600;
+}
+
+.water {
+    align-self: start;
+    padding: 28px;
+    color: #ffffff;
+    background: linear-gradient(160deg, #0b6f93, #06263a);
+    border-radius: 6px 6px 22px 22px;
+}
+
+.water h3 {
+    color: var(--sun);
+}
+
+/* Contact */
+
+.contact {
+    position: relative;
+    padding: 140px 0 36px;
+    color: #ffffff;
+    background: var(--strip);
+}
+
+.contact-wave {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 100%;
+    height: 56px;
+    fill: var(--surface);
+}
+
+.contact > .section-inner > p:not(.credit) {
+    max-width: 54ch;
+    margin-top: 16px;
+}
+
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.contact-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 52px;
+    padding: 10px 26px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 999px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.contact-links a::after {
+    content: '\2197';
+}
+
+.contact-links a:hover {
+    color: #06263a;
+    background: var(--sun);
+    border-color: var(--sun);
+}
+
+.contact :focus-visible {
+    outline-color: var(--sun);
+}
+
+.credit {
+    margin-top: 80px;
+    color: #b9cfd8;
+    font-size: 0.9rem;
+}
+
+/* Smaller laptops and tablets */
+
+@media (max-width: 1020px) {
+    .hero {
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        min-height: 0;
+        padding: 48px 32px 96px;
+    }
+
+    .hero-scene {
+        position: relative;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        align-self: center;
+        width: min(100%, 520px);
+        height: 460px;
+        margin-top: 16px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .water {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 960px) {
+    .conditions-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .controls {
+        grid-template-columns: 1fr;
+    }
+
+    .filters {
+        justify-content: flex-start;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 680px) {
+    .section-inner {
+        padding: 0 16px;
+    }
+
+    .site-header {
+        padding: 10px 16px;
+        gap: 12px;
+    }
+
+    .wordmark {
+        font-size: 1.05rem;
+    }
+
+    .wordmark-kite {
+        display: none;
+    }
+
+    .site-header nav {
+        gap: 14px;
+    }
+
+    .nav-link:not(.nav-keep) {
+        display: none;
+    }
+
+    .theme-button {
+        padding: 6px 12px;
+    }
+
+    .hero {
+        padding: 36px 16px 90px;
+    }
+
+    .hero-scene {
+        height: 380px;
+    }
+
+    .conditions {
+        padding-bottom: 44px;
+    }
+
+    .experience,
+    .about {
+        padding: 64px 0;
+    }
+
+    .card-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .card {
+        padding: 22px 20px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact {
+        padding: 110px 0 28px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .rig,
+    .wind path,
+    .wave {
+        animation: none;
+    }
+
+    .wind path {
+        stroke-dasharray: none;
+        opacity: 0.5;
+    }
+
+    .button {
+        transition: none;
+    }
+}
