@@ -100,7 +100,7 @@ const PROJECTS = [
         logos: ['assets/logos/cornershop.png'],
         category: 'service',
         role: 'Sales Associate',
-        context: 'Surf and kitesurf shop · 2025 · 4 months',
+        context: 'Surf and kitesurf shop · January to April 2026',
         description:
             'I handled both sales and the shop logistics: stock management, orders to ship and remote sales. I also helped develop the shop’s social media marketing, and sales were strong every week.',
         tools: 'Retail, stock, remote sales, social media',
